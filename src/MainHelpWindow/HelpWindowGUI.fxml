@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainHelpWindow.HelpController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane fx:id="pane" prefHeight="500.0" prefWidth="800.0">
+         <children>
+            <ComboBox fx:id="cmbCities" layoutX="325.0" layoutY="90.0" onAction="#showInformation" prefHeight="50.0" prefWidth="150.0" promptText="Elija la ciudad" />
+            <TextArea fx:id="infoCities" layoutX="316.0" layoutY="173.0" prefHeight="200.0" prefWidth="200.0" promptText="Información de la ciudad" />
+            <Label layoutX="384.0" layoutY="27.0" text="Tokyo" />
+            <Button fx:id="returnBtn" layoutX="109.0" layoutY="32.0" mnemonicParsing="false" onAction="#returnToMainWindow" text="Regresar" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
