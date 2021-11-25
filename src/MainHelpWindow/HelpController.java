@@ -1,18 +1,16 @@
 package MainHelpWindow;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
-
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Control the functions and the interactivity between the user and the help window.
@@ -24,37 +22,100 @@ public class HelpController extends Controller{
     @FXML
     ComboBox cmbCities;
     @FXML
-    TextArea infoCities;
+    TextField txtPopulation;
+    @FXML
+    TextArea txtParks;
+    @FXML
+    TextArea txtMuseums;
+    @FXML
+    TextArea txtOthers;
+    @FXML
+    TextArea txtGasStations;
+    @FXML
+    TextArea txtRestaurants;
     @FXML
     Button returnBtn;
     @FXML
     Pane pane;
 
-    private Hashtable<String,String> infoAboutCities= new Hashtable();
+
     /**
      * This method occurs when the window is opened.
      */
     @FXML
     public void initialize() {
         String[] citiesTokyo1 = {"Akiruno","Akishima","Chōfu","Fuchū","Fussa", "Hachiōji", "Hamura",
-                                "Higashikurume","Higashimurayama","Higashiyamato","Hino","Inagi","Kyose",
-                                "Kodaira","Koganei"};
-        cmbCities.getItems().addAll(citiesTokyo1);
+                "Higashikurume","Higashimurayama","H36igashiyamato","Hino","Inagi","Kiyose",
+                "Kodaira","Konagei","Kokubunji","Komae","Kunitachi","Machida","Mitaka","Musashimurayama",
+                "Musashino","Nishitokyo","Ōme","Tachikawa","Tama"};
+        selectionSort orderList = new selectionSort();
+        cmbCities.getItems().addAll(orderList.selectionSort(citiesTokyo1,citiesTokyo1.length));
         cmbCities.setPromptText("Escoja una ciudad");
-        String[] info = {"\nPoblación: 400 000\nLugares de interes: \n \t 1. Nasjjs \n \t 2. Nasjjs \n \t 3. Nasjjs \n Lugares de comida:\n 1. sdhch\n 2. djdjdj \nGasolineras: \n 1. djhd"};
-        int j = 0;
-        for (String i:citiesTokyo1) {
-            infoAboutCities.put(i,i+info[j]);
-            //j++;
-        }
     }
 
+    public String[] getInfoCity(String Cityname) throws FileNotFoundException {
+        try {
+            //csv file containing data
+            String csvFile = "src/MainHelpWindow/cities.csv";
+            BufferedReader reader = new BufferedReader(new FileReader(csvFile));
+            String line;
+            String[] infoForTextAreas = new String[6];
+            String InfoCity = "";
+            int lineNumber = 0;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(Cityname)){
+                    String[] cols = line.split(",");
+                    infoForTextAreas[0] = cols[1]+" habitantes";
+                    for(String park : cols[2].split("-")){
+                        InfoCity += park+"\n";
+                    }
+                    infoForTextAreas[1] = InfoCity;
+                    InfoCity = "";
+                    for(String Museum : cols[3].split("-")){
+                        InfoCity += Museum+"\n";
+                    }
+                    infoForTextAreas[2] = InfoCity;
+                    InfoCity = "";
+                    for(String other : cols[4].split("-")){
+                        InfoCity += other+"\n";
+                    }
+                    infoForTextAreas[3] = InfoCity;
+                    InfoCity = "";
+                    for(String rest : cols[5].split("-")){
+                        InfoCity += rest+"\n";
+                    }
+                    infoForTextAreas[4] = InfoCity;
+                    InfoCity = "";
+                    for(String gasStation : cols[6].split("-")){
+                        InfoCity += gasStation+"\n";
+                    }
+                    infoForTextAreas[5] = InfoCity;
+                    InfoCity = "";
+                }
+            }
+            return infoForTextAreas;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new String[]{};
+    }
 
+    public static void main(String[] args) throws FileNotFoundException {
+        HelpController c = new HelpController();
+        String[] info = c.getInfoCity("Akiruno");
+        System.out.println(info);
+    }
     /**
      * Displays the information about a city in the text area.
      * @param e is an action event when the city is changed.
      */
-    public void showInformation(ActionEvent e){
-        infoCities.setText(infoAboutCities.get(cmbCities.getValue()));
+    public void showInformation(ActionEvent e) throws FileNotFoundException {
+        String[] infoCity = getInfoCity((String) cmbCities.getValue());
+        txtPopulation.setText(infoCity[0]);
+        txtParks.setText(infoCity[1]);
+        txtMuseums.setText(infoCity[2]);
+        txtOthers.setText(infoCity[3]);
+        txtRestaurants.setText(infoCity[4]);
+        txtGasStations.setText(infoCity[5]);
     }
 }

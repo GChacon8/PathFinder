@@ -1,12 +1,13 @@
 package MainHelpWindow;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
 import java.io.IOException;
 
 /**
@@ -18,7 +19,7 @@ import java.io.IOException;
 
 public class Controller {
 
-    private Stage stage;
+    public Stage stage;
     private Scene scene;
     private Parent root;
 
@@ -32,6 +33,7 @@ public class Controller {
         scene = new Scene(root,800,500);
         stage.setTitle("Help");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
