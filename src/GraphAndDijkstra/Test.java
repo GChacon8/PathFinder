@@ -1,38 +1,62 @@
 package GraphAndDijkstra;
 
+import API.API;
+
+import java.text.DecimalFormat;
 import java.util.Map;
 
 public class Test {
 
     public static <V, K> void main(String[] args) {
 
-        Graph graph = new Graph();
+        API api = new API();
 
-        graph.addNode("Alajuela");
-        graph.addNode("San Jose");
-        graph.addNode("Cartago");
-        graph.addNode("Guanacaste");
+        try {
 
-        graph.addEdge("Alajuela", "San Jose", 120);
-        graph.addEdge("Alajuela", "Cartago", 360);
-        graph.addEdge("Cartago", "Limon", 560);
-        graph.addEdge("San Jose", "Cartago", 200);
-        graph.addEdge("Alajuela", "Limon", 1000);
-        graph.addEdge("Guanacaste", "Alajuela", 200);
-        graph.addEdge("Guanacaste", "Cartago", 1300);
+            Graph graph = new Graph();
 
-        Dijkstra dijkstra = new Dijkstra();
+            Double[][] distances = api.callApi(); // must start at [1][1] but ignoring the [i][i] because they are 0.0
+            int matrixSize = distances.length;
 
-        String source = "Guanacaste";
-        String destine = "Cartago";
-        Map<K, Double> route = dijkstra.calcShortestPath(graph,source, destine);
+            Double time = 0.0;
+            String timeString = "";
+            Double timeRounded = 0.0;
+            DecimalFormat df = new DecimalFormat("#.00");
 
-        Double totalTime = route.get(destine);
+            /* Create the nodes */
+            for(int k = 0; k <= 25; k++){
+                graph.addNode(k);
+            }
 
-        System.out.println("\n" + "Para llegar a " + destine + " desde "
-                + source + " necesita pasar por estas ciudades y se duran estos tiempos: "
-                + "\n" + "\n" + route + "\n" + "\n" + "El tiempo total para llegar es " +
-                totalTime + " min, más atrasos");
+            /* Here we create the edges */
+            for (int i = 1; i < matrixSize; i++) {
+                for (int j = 1; j < matrixSize; j++) {
+                    time = (distances[i][j] / 80) * 60; // time in minutes
+                    if(i != j){
+                        timeString = df.format(time);
 
+                        if(timeString.indexOf(",")!=-1){
+                            timeString = timeString.replace(',', '.');
+                        }
+
+                        timeRounded = Double.valueOf(timeString);
+                        graph.addEdge(i, j, timeRounded);
+                    }
+                }
+            }
+
+            Dijkstra dijkstra = new Dijkstra();
+
+            int source = 5;
+            int destine = 17;
+            Map<K, Double> route = dijkstra.calcShortestPath(graph,source, destine);
+            Double totalTime = route.get(destine);
+
+            System.out.println("\n" + "Para llegar a " + destine + " desde " + source + " :" + "\n" + route
+                    + "\n" + "Tiempo total: "+ totalTime + " min");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

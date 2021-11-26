@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Control the functions and the interactivity between the user and the help window.
  *
- * @author Justin Fern&aacute;ndez, Gabriel Chac&#243;n, Jimena León and Abraham Venegas.
+ * @author Justin Fernandez, Gabriel Chacon, Jimena Leo n and Abraham Venegas.
  * @version 1
  */
 public class HelpController extends Controller{

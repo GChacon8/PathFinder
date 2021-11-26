@@ -1,19 +1,18 @@
 package MainHelpWindow;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
+
 import java.io.IOException;
 
 /**
  * Controller to switch between scenes
  *
- * @author Justin Fern&aacute;ndez, Gabriel Chac&#243;n, Jimena León and Abraham Venegas.
+ * @author Justin Fernandez, Gabriel Chacon, Jimena Leon and Abraham Venegas.
  *
  */
 
