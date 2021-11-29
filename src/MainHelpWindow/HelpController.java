@@ -44,12 +44,8 @@ public class HelpController extends Controller{
      */
     @FXML
     public void initialize() {
-        String[] citiesTokyo1 = {"Akiruno","Akishima","Chōfu","Fuchū","Fussa", "Hachiōji", "Hamura",
-                "Higashikurume","Higashimurayama","H36igashiyamato","Hino","Inagi","Kiyose",
-                "Kodaira","Konagei","Kokubunji","Komae","Kunitachi","Machida","Mitaka","Musashimurayama",
-                "Musashino","Nishitokyo","Ōme","Tachikawa","Tama"};
-        selectionSort orderList = new selectionSort();
-        cmbCities.getItems().addAll(orderList.selectionSort(citiesTokyo1,citiesTokyo1.length));
+        quickSort orderList = quickSort.getInstance();
+        cmbCities.getItems().addAll(orderList.getOrderedCities());
         cmbCities.setPromptText("Escoja una ciudad");
     }
 
@@ -100,11 +96,6 @@ public class HelpController extends Controller{
         return new String[]{};
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        HelpController c = new HelpController();
-        String[] info = c.getInfoCity("Akiruno");
-        System.out.println(info);
-    }
     /**
      * Displays the information about a city in the text area.
      * @param e is an action event when the city is changed.

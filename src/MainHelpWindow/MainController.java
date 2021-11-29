@@ -26,12 +26,9 @@ public class MainController extends Controller{
 
     @FXML
     public void initialize() {
-        String[] citiesTokyo1 = {"Akiruno","Akishima","Chōfu","Fuchū","Fussa", "Hachiōji", "Hamura",
-                "Higashikurume","Higashimurayama","Higashiyamato","Hino","Inagi","Kyose",
-                "Kodaira","Koganei"};
-        String[] citiesTokyo2 = citiesTokyo1;
-        ctcDeparture.getItems().addAll(citiesTokyo1);
-        ctcArrival.getItems().addAll(citiesTokyo2);
+        quickSort orderList = quickSort.getInstance();
+        ctcDeparture.getItems().addAll(orderList.getOrderedCities());
+        ctcArrival.getItems().addAll(orderList.getOrderedCities());
         SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,100);
         valueFactory.setValue(0.0);
         delaySpinner.setValueFactory(valueFactory);
