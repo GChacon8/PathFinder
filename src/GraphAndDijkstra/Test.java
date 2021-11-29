@@ -29,15 +29,12 @@ public class Test {
             }
 
             /* Here we create the edges */
-            for (int i = 1; i < matrixSize; i++) {
-                for (int j = 1; j < matrixSize; j++) {
-                    time = (distances[i][j] / 80) * 60; // time in minutes
+            for (int i = 0; i < matrixSize; i++) {
+                for (int j = 0; j < matrixSize; j++) {
+                    time = distances[i][j]; // time in minutes
                     if(i != j){
                         timeString = df.format(time);
 
-                        if(timeString.indexOf(",")!=-1){
-                            timeString = timeString.replace(',', '.');
-                        }
 
                         timeRounded = Double.valueOf(timeString);
                         graph.addEdge(i, j, timeRounded);

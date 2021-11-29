@@ -12,7 +12,11 @@ import java.net.http.HttpResponse;
 public class API {
     private final String API_KEY = "AIzaSyB0IG79cXoG_hZoGtrH3oOfLyyHFJhMWfE";
     private Double[][] distances;
-    private String[] cities = {"Akiruno,+Tokyo,+Japan","Akishima,+Tokyo,+Japan","Chofu,+Tokyo,+Japan","Fuchu,+Tokyo,+Japan","Fussa,+Tokyo,+Japan","Hachioji,+Tokyo,+Japan","Hamura,+Tokyo,+Japan","Higashikurume+City,+Tokyo","Higashimurayama+City,+Tokyo","Higashiyamato+City,+Tokyo","Hino+City,+Tokyo","Inagi+City,+Tokyo","Kiyose+City,+Tokyo","Kodaira+City,+Tokyo","Koganei+City,+Tokyo","Kokubunji+City,+Tokyo","Komae+City,+Tokyo","Kunitachi+City,+Tokyo","Machida+City,+Tokyo","Mitaka+City,+Tokyo","Musashimurayama+City,+Tokyo","Musashino+City,+Tokyo","Nishitokyo+City,+Tokyo","Ome+City,+Tokyo","Tachikawa+City,+Tokyo","Tama+City,+Tokyo"};
+    private String[] cities = {"Akiruno,+Tokyo,+Japan","Akishima,+Tokyo,+Japan","Chofu,+Tokyo,+Japan","Fuchu,+Tokyo,+Japan",
+            "Fussa,+Tokyo,+Japan","Hachioji,+Tokyo,+Japan","Hamura,+Tokyo,+Japan","Higashikurume+City,+Tokyo","Higashimurayama+City,+Tokyo",
+            "Higashiyamato+City,+Tokyo","Hino+City,+Tokyo","Inagi+City,+Tokyo","Kiyose+City,+Tokyo","Kodaira+City,+Tokyo","Koganei+City,+Tokyo",
+            "Kokubunji+City,+Tokyo","Komae+City,+Tokyo","Kunitachi+City,+Tokyo","Machida+City,+Tokyo","Mitaka+City,+Tokyo","Musashimurayama+City,+Tokyo",
+            "Musashino+City,+Tokyo","Nishitokyo+City,+Tokyo","Ome+City,+Tokyo","Tachikawa+City,+Tokyo","Tama+City,+Tokyo"};
     private final int n = cities.length;
 
     //downloading the data
@@ -39,7 +43,7 @@ public class API {
                 JSONObject je = (JSONObject) jo.get("distance");
                 distance = (long) je.get("value");
 
-                distances[i][j] = Double.valueOf(distance / (200/9));
+                distances[i][j] = Double.valueOf((distance / (200/9))/60);
 
             } catch (Exception e) {
                 System.out.println(e + " for " + cities[j]);
@@ -49,8 +53,8 @@ public class API {
 
     public void make_text_file() throws FileNotFoundException {
         PrintWriter out =new PrintWriter("distanceMatrix.txt");
-        for (int i = 1 ; i < n ; i++) {
-            for (int j = 1; j < n; j++) {
+        for (int i = 0 ; i < n ; i++) {
+            for (int j = 0; j < n; j++) {
                 out.print(distances[i][j] + " ");
             }
             out.println();
@@ -73,7 +77,7 @@ public class API {
                 }
             }
         make_text_file();
-
+        System.out.println(String.valueOf(distances[1][25]));
         return distances;
     }
 }

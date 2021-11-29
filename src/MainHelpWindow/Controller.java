@@ -36,6 +36,7 @@ public class Controller {
         stage.show();
     }
 
+
     /**
      * This method returns to the main window.
      * @param event is an action event when the button is clicked.
