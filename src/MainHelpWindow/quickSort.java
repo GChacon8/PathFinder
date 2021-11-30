@@ -11,7 +11,7 @@ public class quickSort {
         this.orderedCities = null;
         this.unsortedCities = new String[]{"Akiruno", "Akishima", "Chōfu", "Fuchū", "Fussa", "Hachiōji", "Hamura",
                 "Higashikurume", "Higashimurayama", "Higashiyamato", "Hino", "Inagi", "Kiyose",
-                "Kodaira", "Konagei", "Kokubunji", "Komae", "Kunitachi", "Machida", "Mitaka", "Musashimurayama",
+                "Kodaira", "Konganei", "Kokubunji", "Komae", "Kunitachi", "Machida", "Mitaka", "Musashimurayama",
                 "Musashino", "Nishitokyo", "Ōme", "Tachikawa", "Tama"};
     }
 
