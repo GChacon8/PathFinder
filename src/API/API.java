@@ -68,16 +68,118 @@ public class API {
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++) {
 //                System.out.print(++count+"/100 ");
-                if (i != j) {
+                if (i == 0 && (j==23 || j == 6 || j==4 || j ==5)) {
                     String response = getData(cities[i], cities[j]);
                     parse(response, i, j);
                 }
-                else {
+                else if (i == 1 && (j==4 || j == 10 || j==5 || j ==24)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 2 && (j==16 || j == 19 || j==14 || j ==3 || j==11)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 3 && (j==11 || j == 25 || j==10 || j ==17 || j==15 || j==14 || j==2)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 4 && (j==5 || j == 0 || j==6 || j ==20 || j==24 || j==1)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 5 && (j==18 || j == 25 || j==10 || j ==1 || j==4 || j==0)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 6 && (j==0 || j == 4 || j==23)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 7 && (j==22 || j == 13 || j==8 || j ==12)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 8 && (j==9 || j == 13 || j==7 || j ==12)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 9 && (j==8 || j == 13 || j==24 || j ==21)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 10 && (j==25 || j == 5 || j==1 || j ==24 || j==17 || j==3)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 11 && (j==25 || j == 3 || j==2)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 12 && (j==7 || j == 8)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 13 && (j==8 || j == 7 || j==22 || j ==14 || j==15 || j==24 || j==9)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 14 && (j==3 || j == 15 || j==13 || j ==22 || j==21 || j==19 || j==2)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 15 && (j==3 || j == 17 || j==24 || j ==13 || j==14)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 16 && j==2 ) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 17 && (j==3 || j == 10 || j==24 || j ==15)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 18 && (j==5 || j == 25)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 19 && (j==2 || j == 14 || j==21)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 20 && (j==4 || j == 24 || j==9)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 21 && (j==22 || j == 14 || j==19)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 22 && (j==7 || j == 13 || j==14 || j ==21)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 23 && (j==6 || j == 0)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 24 && (j==10 || j == 1 || j==4 || j ==20 || j==9 || j==13 || j==15 || j==17)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i == 25 && (j==18 || j == 5 || j==10 || j ==3 || j==11)) {
+                    String response = getData(cities[i], cities[j]);
+                    parse(response, i, j);
+                }
+                else if (i==j)    {
                     distances[i][j] = 0.0;
+                }
+                else{
+                    distances[i][j] = 99999999999.0;
                 }
             }
         make_text_file();
-        System.out.println(String.valueOf(distances[1][25]));
         return distances;
     }
 }

@@ -12,7 +12,7 @@ public class quickSort {
         this.unsortedCities = new String[]{"Akiruno", "Akishima", "Chōfu", "Fuchū", "Fussa", "Hachiōji", "Hamura",
                 "Higashikurume", "Higashimurayama", "Higashiyamato", "Hino", "Inagi", "Kiyose",
                 "Kodaira", "Konganei", "Kokubunji", "Komae", "Kunitachi", "Machida", "Mitaka", "Musashimurayama",
-                "Musashino", "Nishitokyo", "Ōme", "Tachikawa", "Tama"};
+                "Musashino", "Nishitokyo", "Ome", "Tachikawa", "Tama"};
     }
 
     /**
@@ -77,7 +77,7 @@ public class quickSort {
         String[] arr = {"Akiruno","Akishima","Chōfu","Fuchū","Fussa", "Hachiōji", "Hamura",
                 "Higashikurume","Higashimurayama","Higashiyamato","Hino","Inagi","Kiyose",
                 "Kodaira","Konagei","Kokubunji","Komae","Kunitachi","Machida","Mitaka","Musashimurayama",
-                "Musashino","Nishitokyo","Ōme","Tachikawa","Tama"};
+                "Musashino","Nishitokyo","Ome","Tachikawa","Tama"};
         int n = arr.length;
         quickSort(arr, 0, n - 1);
     }
