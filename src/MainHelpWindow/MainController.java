@@ -11,21 +11,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-
-import java.awt.*;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 
+/**
+ * Control the functions and the interactivity between the user and the app.
+ *
+ * @author Justin Fernandez, Gabriel Chacon, Jimena Leon and Abraham Venegas.
+ * @version 1
+ */
 public class MainController extends Controller{
 
     @FXML
-    ComboBox ctcDeparture;
-    @FXML
-    ComboBox ctcArrival;
-    @FXML
-    TextArea delayTraffic;
+    ComboBox ctcDeparture,ctcArrival;
     @FXML
     Button HelpButton;
     @FXML
@@ -50,18 +50,21 @@ public class MainController extends Controller{
     @FXML
     Spinner<Double> delaySpinner;
 
-    Double currentDelay;
     quickSort orderList;
     Map<Integer, Circle> circlePlaces = new HashMap<Integer, Circle>();
+
+    /**
+     * This method occurs just before the window is opened, sets the comboBox element
+     * with the cities in alphabetical order. Also, sets the circles for an easy access.
+     */
     @FXML
     public void initialize() {
         orderList = quickSort.getInstance();
         ctcDeparture.getItems().addAll(orderList.getOrderedCities());
         ctcArrival.getItems().addAll(orderList.getOrderedCities());
-        SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,100);
+        SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 100);
         valueFactory.setValue(0.0);
         delaySpinner.setValueFactory(valueFactory);
-
         circlePlaces.put(0, akiruno);
         circlePlaces.put(1, akishima);
         circlePlaces.put(2, chofu);
@@ -93,6 +96,8 @@ public class MainController extends Controller{
     /**
      * This method calls the Dijkstra's algorithm to find the shortest path.
      * @param event is an action event when the button is clicked.
+     *
+     * @throws IOException if something happened wrong with the API
      */
     public <V, K> void callDijkstra(ActionEvent event) throws IOException {
         for(int i = 0; i < 26;i++){
@@ -127,11 +132,9 @@ public class MainController extends Controller{
                     time = distances[i][j]; // time in minutes
                     if (i != j) {
                         timeString = dformat.format(time);
-
                         if (timeString.indexOf(",") != -1) {
                             timeString = timeString.replace(',', '.');
                         }
-
                         timeRounded = Double.valueOf(timeString);
                         graph.addEdge(i, j, timeRounded);
                     }
@@ -213,6 +216,6 @@ public class MainController extends Controller{
             e.printStackTrace();
         }
         }
-    }
+}
 
 

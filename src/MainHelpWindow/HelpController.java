@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Control the functions and the interactivity between the user and the help window.
  *
- * @author Justin Fernandez, Gabriel Chacon, Jimena Leo n and Abraham Venegas.
+ * @author Justin Fernandez, Gabriel Chacon, Jimena Leon and Abraham Venegas.
  * @version 1
  */
 public class HelpController extends Controller{
@@ -24,15 +24,7 @@ public class HelpController extends Controller{
     @FXML
     TextField txtPopulation;
     @FXML
-    TextArea txtParks;
-    @FXML
-    TextArea txtMuseums;
-    @FXML
-    TextArea txtOthers;
-    @FXML
-    TextArea txtGasStations;
-    @FXML
-    TextArea txtRestaurants;
+    TextArea txtParks,txtMuseums,txtOthers,txtGasStations,txtRestaurants;
     @FXML
     Button returnBtn;
     @FXML
@@ -40,7 +32,8 @@ public class HelpController extends Controller{
 
 
     /**
-     * This method occurs when the window is opened.
+     * This method occurs just before the window is opened, sets the comboBox element
+     * with the cities in alphabetical order.
      */
     @FXML
     public void initialize() {
@@ -49,6 +42,14 @@ public class HelpController extends Controller{
         cmbCities.setPromptText("Escoja una ciudad");
     }
 
+
+    /**
+     * Returns the information of a given city through reading the csv file in the file
+     * with the city info.
+     * @param Cityname the name of the city to return the information.
+     * @return the information about the city.
+     * @throws FileNotFoundException if something happened wrong with the csv file.
+     */
     public String[] getInfoCity(String Cityname) throws FileNotFoundException {
         try {
             //csv file containing data

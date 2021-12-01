@@ -13,9 +13,8 @@ import java.io.IOException;
  * Controller to switch between scenes
  *
  * @author Justin Fernandez, Gabriel Chacon, Jimena Leon and Abraham Venegas.
- *
+ * @version 1
  */
-
 public class Controller {
 
     public Stage stage;

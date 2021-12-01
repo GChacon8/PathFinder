@@ -13,7 +13,7 @@
         <RowConstraints />
     </rowConstraints>
     <children>
-        <Pane fx:id="pane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="778.0">
+        <Pane fx:id="pane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="778.0">
          <children>
             <ComboBox fx:id="ctcDeparture" layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="162.0" promptText="Choose the city" />
             <ComboBox fx:id="ctcArrival" layoutX="194.0" layoutY="31.0" prefHeight="38.0" prefWidth="173.0" promptText="Choose the city" />
@@ -23,9 +23,9 @@
             <Button fx:id="HelpButton" layoutX="660.0" layoutY="31.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="38.0" prefWidth="88.0" text="Help" />
             <Button fx:id="findPath" layoutX="544.0" layoutY="31.0" mnemonicParsing="false" onAction="#callDijkstra" prefHeight="38.0" prefWidth="88.0" text="Find" />
             <Spinner fx:id="delaySpinner" layoutX="380.0" layoutY="38.0" />
-            <Label fx:id="expectedTime" layoutX="608.0" layoutY="73.0" prefHeight="34.0" prefWidth="99.0" text="Expected Time" underline="true">
+            <Label fx:id="expectedTime" layoutX="568.0" layoutY="83.0" prefHeight="39.0" prefWidth="183.0" text="Expected Time" underline="true">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Line endX="-57.0" endY="77.0" layoutX="164.0" layoutY="316.0" startX="-75.29290771484375" startY="-62.29290771484375" />
             <Line endX="42.0" endY="-18.0" layoutX="143.0" layoutY="244.0" startX="-55.0" startY="10.4141845703125" />
@@ -269,6 +269,7 @@
             <Label fx:id="peso_7_22" layoutX="640.0" layoutY="221.0" />
             <Label fx:id="peso_8_12" layoutX="525.0" layoutY="146.0" />
             <Label fx:id="peso_8_9" layoutX="426.0" layoutY="186.0" />
+            <Label layoutX="322.0" layoutY="597.0" text="Distances in km" />
          </children></Pane>
     </children>
 </GridPane>
