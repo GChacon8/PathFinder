@@ -52,7 +52,7 @@ public class API {
     }
 
     public void make_text_file() throws FileNotFoundException {
-        PrintWriter out =new PrintWriter("distanceMatrix.txt");
+        PrintWriter out =new PrintWriter("TimeMatrix.txt");
         for (int i = 0 ; i < n ; i++) {
             for (int j = 0; j < n; j++) {
                 out.print(distances[i][j] + " ");

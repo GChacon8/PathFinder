@@ -79,7 +79,7 @@ public final class Dijkstra {
         T current = destine;
         Double predecesorTime;
         Map<T, Double> bestRoute = new HashMap<T, Double>();
-
+        System.out.println(ancestorsMap);
         while(current != source){ // Add times of the cities involved to get to DESTINE
             predecesorTime = timesMap.get(current);
             bestRoute.put(current, predecesorTime);

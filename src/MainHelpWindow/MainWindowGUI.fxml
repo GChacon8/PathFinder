@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainHelpWindow.MainController">
     <columnConstraints>
@@ -22,113 +23,252 @@
             <Button fx:id="HelpButton" layoutX="660.0" layoutY="31.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="38.0" prefWidth="88.0" text="Help" />
             <Button fx:id="findPath" layoutX="544.0" layoutY="31.0" mnemonicParsing="false" onAction="#callDijkstra" prefHeight="38.0" prefWidth="88.0" text="Find" />
             <Spinner fx:id="delaySpinner" layoutX="380.0" layoutY="38.0" />
-            <Label fx:id="expectedTime" layoutX="663.0" layoutY="73.0" prefHeight="17.0" prefWidth="82.0" text="Expected Time" />
-            <Circle fx:id="akiruno" layoutX="95.0" layoutY="241.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="akirunoLabel" layoutX="39.0" layoutY="259.0" text="Akiruno" />
-            <Circle fx:id="akishima" layoutX="194.0" layoutY="302.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="akishimaLabel" layoutX="117.0" layoutY="279.0" text="Akishima" />
-            <Circle fx:id="chofu" layoutX="632.0" layoutY="483.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="fuchu" layoutX="482.0" layoutY="423.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="fussa" layoutX="185.0" layoutY="226.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="hachioji" layoutX="107.0" layoutY="393.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="hamura" layoutX="139.0" layoutY="164.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="higashikurume" layoutX="575.0" layoutY="229.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="higashimurayama" layoutX="488.0" layoutY="194.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="higashiyamato" layoutX="376.0" layoutY="179.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="hino" layoutX="218.0" layoutY="399.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="inaji" layoutX="473.0" layoutY="514.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="kiyose" layoutX="590.0" layoutY="149.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="kodaira" layoutX="488.0" layoutY="263.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="konagei" layoutX="549.0" layoutY="326.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="kokubunji" layoutX="416.0" layoutY="311.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="komae" layoutX="690.0" layoutY="534.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="kinitachi" layoutX="331.0" layoutY="349.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="machida" layoutX="306.0" layoutY="568.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="mitaka" layoutX="631.0" layoutY="396.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="musashimurayama" layoutX="283.0" layoutY="149.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="musashino" layoutX="660.0" layoutY="318.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="nishitokyo" layoutX="660.0" layoutY="240.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="ome" layoutX="45.0" layoutY="129.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="tachikawa" layoutX="291.0" layoutY="249.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="tama" layoutX="321.0" layoutY="483.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="chofuLabel" layoutX="655.0" layoutY="460.0" text="Chofu" />
-            <Label fx:id="fuchuLabel" layoutX="511.0" layoutY="400.0" text="Fuchu" />
-            <Label fx:id="fussaLabel" layoutX="180.0" layoutY="186.0" text="Fussa" />
-            <Label fx:id="hachiojiLabel" layoutX="49.0" layoutY="361.0" text="Hachioji" />
-            <Label fx:id="hamuraLabel" layoutX="143.0" layoutY="126.0" text="Hamura" />
-            <Label fx:id="higashikurumaLabel" layoutX="591.0" layoutY="195.0" text="Higashikuruma" />
-            <Label fx:id="higashimurayamaLabel" layoutX="447.0" layoutY="156.0" text="Higashimurayama" />
-            <Label fx:id="higashiyamatoLabel" layoutX="365.0" layoutY="126.0" text="Higashiyamato" />
-            <Label fx:id="hinoLabel" layoutX="172.0" layoutY="370.0" text="Hino" />
-            <Label fx:id="inagiLabel" layoutX="486.0" layoutY="526.0" text="Inagi" />
-            <Label fx:id="kiyoseLabel" layoutX="603.0" layoutY="99.0" text="Kiyose" />
-            <Label fx:id="kodairaLabel" layoutX="442.0" layoutY="219.0" text="Kodaira" />
-            <Label fx:id="koganeiLabel" layoutX="528.0" layoutY="286.0" text="Koganei" />
-            <Label fx:id="kokubunjiLabel" layoutX="377.0" layoutY="271.0" text="Kokubunji" />
-            <Label fx:id="komaeLabel" layoutX="705.0" layoutY="506.0" text="Komae" />
-            <Label fx:id="kinitachiLabel" layoutX="327.0" layoutY="370.0" text="Kinitachi" />
-            <Label fx:id="machidaLabel" layoutX="336.0" layoutY="551.0" text="Machida" />
-            <Label fx:id="mitakaLabel" layoutX="672.0" layoutY="388.0" text="Mitaka" />
-            <Label fx:id="musashimurayamaLabel" layoutX="266.0" layoutY="99.0" text="Musashimurayama" />
-            <Label fx:id="musashinoLabel" layoutX="675.0" layoutY="295.0" text="Musashino" />
-            <Label fx:id="nishitokyoLabel" layoutX="680.0" layoutY="218.0" text="Nishitokyo" />
-            <Label fx:id="omeLabel" layoutX="47.0" layoutY="91.0" text="Ome" />
-            <Label fx:id="tachikawaLabel" layoutX="223.0" layoutY="210.0" text="Tachikawa" />
-            <Label fx:id="tamaLabel" layoutX="311.0" layoutY="439.0" text="Tama" />
-            <Line endX="-58.0" endY="50.0" layoutX="164.0" layoutY="316.0" startX="-65.0" startY="-41.0" />
-            <Line endX="21.0" endY="-9.0" layoutX="143.0" layoutY="244.0" startX="-26.0" />
-            <Line endX="-65.0" endY="-65.0" layoutX="119.0" layoutY="216.0" startX="-45.0" startY="7.0" />
-            <Line endX="-62.0" endY="29.0" layoutX="176.0" layoutY="129.0" startX="-108.0" startY="8.0" />
-            <Line endX="23.0" endY="-8.0" layoutX="108.0" layoutY="197.0" startY="29.0" />
-            <Line endX="-88.0" endY="-29.0" layoutX="242.0" layoutY="214.0" startX="-72.0" startY="-3.0" />
-            <Line endX="-59.0" endY="95.0" layoutX="251.0" layoutY="184.0" startX="-66.0" startY="64.0" />
-            <Line endX="-66.0" endY="2.0" layoutX="332.0" layoutY="244.0" startX="-120.0" startY="-12.0" />
-            <Line endX="27.0" endY="-18.0" layoutX="239.0" layoutY="188.0" startX="-33.0" startY="24.0" />
-            <Line endX="45.0" endY="-19.0" layoutX="139.0" layoutY="344.0" startX="-7.0" startY="40.0" />
-            <Line endX="31.0" endY="-9.0" layoutX="164.0" layoutY="408.0" startX="-32.0" startY="-9.0" />
-            <Line endX="64.0" endY="14.0" layoutX="234.0" layoutY="461.0" startX="-107.0" startY="-48.0" />
-            <Line endX="80.0" endY="32.0" layoutX="211.0" layoutY="521.0" startX="-94.0" startY="-97.0" />
-            <Line endY="24.0" layoutX="672.0" layoutY="494.0" startX="-25.0" startY="7.0" />
-            <Line endX="70.0" endY="25.0" layoutX="376.0" layoutY="489.0" startX="-29.0" startY="3.0" />
-            <Line endX="42.0" endY="57.0" layoutX="431.0" layoutY="431.0" startX="48.0" startY="18.0" />
-            <Line endX="-65.0" endY="19.0" layoutX="632.0" layoutY="147.0" startX="-119.0" startY="42.0" />
-            <Line endX="-89.0" endY="-6.0" layoutX="672.0" layoutY="178.0" startX="-89.0" startY="28.0" />
-            <Line endX="14.0" endY="20.0" layoutX="332.0" layoutY="150.0" startX="-27.0" />
-            <Line endX="-22.0" endY="34.0" layoutX="306.0" layoutY="194.0" startX="-22.0" startY="-18.0" />
-            <Line endX="31.0" layoutX="431.0" layoutY="191.0" startX="-31.0" startY="-6.0" />
-            <Line endX="41.0" endY="-2.0" layoutX="512.0" layoutY="224.0" startX="-2.0" startY="-17.0" />
-            <Line endX="28.0" endY="8.0" layoutX="461.0" layoutY="234.0" startX="28.0" startY="-18.0" />
-            <Line endX="-48.0" endY="-39.0" layoutX="406.0" layoutY="239.0" startX="-94.0" startY="-3.0" />
-            <Line endX="59.0" endY="29.0" layoutX="407.0" layoutY="223.0" startX="-21.0" startY="-21.0" />
-            <Line endX="11.0" endY="-17.0" layoutX="540.0" layoutY="256.0" startX="-31.0" />
-            <Line endX="3.0" endY="-34.0" layoutX="632.0" layoutY="278.0" startX="-36.0" startY="-41.0" />
-            <Line endX="2.0" endY="-33.0" layoutX="264.0" layoutY="289.0" startX="-48.0" />
-            <Line endX="-72.0" endY="28.0" layoutX="285.0" layoutY="346.0" startX="-86.0" startY="-23.0" />
-            <Line endX="22.0" endY="-18.0" layoutX="608.0" layoutY="435.0" startX="22.0" startY="20.0" />
-            <Line endX="12.0" endY="-34.0" layoutX="539.0" layoutY="390.0" startX="78.0" startY="69.0" />
-            <Line endX="137.0" endY="36.0" layoutX="367.0" layoutY="399.0" startX="243.0" startY="75.0" />
-            <Line endX="46.0" layoutX="563.0" layoutY="490.0" startX="-61.0" startY="21.0" />
-            <Line endX="-170.0" endY="-53.0" layoutX="495.0" layoutY="559.0" startX="-179.0" startY="-15.0" />
-            <Line endX="-22.292877197265625" endY="26.0" layoutX="321.0" layoutY="433.0" startX="-88.0" startY="-19.0" />
-            <Line endX="109.0" endY="-5.0" layoutX="346.0" layoutY="433.0" startX="-2.0" startY="40.0" />
-            <Line endX="-14.0" endY="-65.0" layoutX="291.0" layoutY="333.0" startX="-59.0" startY="41.0" />
-            <Line endX="24.0" endY="-34.0" layoutX="292.0" layoutY="398.0" startX="-50.0" />
-            <Line endX="108.0" endY="13.0" layoutX="346.0" layoutY="405.0" startX="-100.0" />
-            <Line endX="26.0" endY="29.0" layoutX="590.0" layoutY="352.0" startX="-26.0" startY="-11.0" />
-            <Line endX="-11.0" endY="-23.0" layoutX="660.0" layoutY="364.0" startX="-22.0" startY="11.0" />
-            <Line endX="-46.70709228515625" endY="-15.0" layoutX="680.0" layoutY="343.0" startX="-105.5" startY="-15.0" />
-            <Line endX="8.0" endY="-15.0" layoutX="652.0" layoutY="279.0" startX="8.0" startY="16.0" />
-            <Line endX="25.0" endY="-11.0" layoutX="611.0" layoutY="267.0" startX="-100.0" />
-            <Line endX="41.0" endY="-17.0" layoutX="604.0" layoutY="287.0" startX="-40.0" startY="24.0" />
-            <Line endX="8.70709228515625" endY="55.29290771484375" layoutX="446.0" layoutY="349.0" startX="-92.0" />
-            <Line endX="27.0" endY="58.0" layoutX="444.0" layoutY="341.0" startX="-22.0" startY="-10.0" />
-            <Line endX="-18.0" endY="-12.0" layoutX="545.0" layoutY="349.0" startX="-44.0" startY="54.0" />
-            <Line endX="-139.0" endY="60.0" layoutX="460.0" layoutY="272.0" startX="-161.0" />
-            <Line endX="-6.0" endY="13.0" layoutX="395.0" layoutY="283.0" startX="-84.0" startY="-24.70709228515625" />
-            <Line endX="100.0" layoutX="360.0" layoutY="263.0" startX="-42.0" startY="-12.0" />
-            <Line endX="-15.0" endY="-17.0" layoutX="482.0" layoutY="295.0" startX="-51.0" startY="1.0" />
-            <Line endX="37.0" endY="24.0" layoutX="497.0" layoutY="287.0" startX="6.0" startY="-9.0" />
-            <Line endX="-25.0" endY="-9.0" layoutX="551.0" layoutY="334.0" startX="-109.0" startY="-21.0" />
+            <Label fx:id="expectedTime" layoutX="608.0" layoutY="73.0" prefHeight="34.0" prefWidth="99.0" text="Expected Time" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Line endX="-57.0" endY="77.0" layoutX="164.0" layoutY="316.0" startX="-75.29290771484375" startY="-62.29290771484375" />
+            <Line endX="42.0" endY="-18.0" layoutX="143.0" layoutY="244.0" startX="-55.0" startY="10.4141845703125" />
+            <Line endX="-66.0" endY="-74.0" layoutX="119.0" layoutY="216.0" startX="-31.0" startY="37.0" />
+            <Line endX="-37.0" endY="35.0" layoutX="176.0" layoutY="129.0" startX="-123.0" startY="7.0" />
+            <Line endX="31.707122802734375" endY="-32.29289245605469" layoutX="108.0" layoutY="197.0" startX="-19.29290771484375" startY="56.70709228515625" />
+            <Line endX="-102.29287719726562" endY="-49.29289245605469" layoutX="242.0" layoutY="214.0" startX="-56.29290771484375" startY="11.29290771484375" />
+            <Line endX="-57.0" endY="118.0" layoutX="251.0" layoutY="184.0" startX="-66.0" startY="42.0" />
+            <Line endX="-41.0" endY="5.0" layoutX="332.0" layoutY="244.0" startX="-147.0" startY="-18.0" />
+            <Line endX="44.0" endY="-39.0" layoutX="239.0" layoutY="188.0" startX="-52.5858154296875" startY="38.0" />
+            <Line endX="55.0" endY="-42.0" layoutX="139.0" layoutY="344.0" startX="-32.0" startY="50.4141845703125" />
+            <Line endX="54.0" endY="-9.0" layoutX="164.0" layoutY="408.0" startX="-57.0" startY="-15.0" />
+            <Line endX="87.70709228515625" endY="21.29290771484375" layoutX="234.0" layoutY="461.0" startX="-126.29287719726562" startY="-67.29290771484375" />
+            <Line endX="95.0" endY="47.0" layoutX="211.0" layoutY="521.0" startX="-103.29287719726562" startY="-127.29290771484375" />
+            <Line endX="18.0" endY="40.0" layoutX="672.0" layoutY="494.0" startX="-40.0" startY="-11.0" />
+            <Line endX="97.0" endY="25.0" layoutX="376.0" layoutY="489.0" startX="-53.5858154296875" startY="-6.0" />
+            <Line endX="42.70709228515625" endY="83.70709228515625" layoutX="431.0" layoutY="431.0" startX="51.70709228515625" startY="-7.292877197265625" />
+            <Line endX="-42.0" endY="14.0" layoutX="632.0" layoutY="147.0" startX="-143.29290771484375" startY="47.70710754394531" />
+            <Line endX="-81.29290771484375" endY="-17.707107543945312" layoutX="672.0" layoutY="178.0" startX="-96.29290771484375" startY="50.29290771484375" />
+            <Line endX="44.0" endY="29.0" layoutX="332.0" layoutY="150.0" startX="-49.0" startY="-1.0" />
+            <Line endX="-14.29290771484375" endY="54.29290771484375" layoutX="306.0" layoutY="194.0" startX="-22.29290771484375" startY="-45.70710754394531" />
+            <Line endX="57.0" endY="3.0" layoutX="431.0" layoutY="191.0" startX="-55.0" startY="-12.0" />
+            <Line endX="63.0" endY="5.0" layoutX="512.0" layoutY="224.0" startX="-24.0" startY="-30.0" />
+            <Line endX="28.4141845703125" endY="29.0" layoutX="461.0" layoutY="234.0" startX="27.70709228515625" startY="-39.29289245605469" />
+            <Line endX="-30.0" endY="-60.0" layoutX="406.0" layoutY="239.0" startX="-114.29290771484375" startY="9.29290771484375" />
+            <Line endX="81.0" endY="40.0" layoutX="407.0" layoutY="223.0" startX="-30.29290771484375" startY="-44.70710754394531" />
+            <Line endX="35.0" endY="-27.0" layoutX="540.0" layoutY="256.0" startX="-52.70709228515625" startY="6.29290771484375" />
+            <Line endX="52.0" endY="-35.0" layoutX="632.0" layoutY="278.0" startX="-56.29290771484375" startY="-48.29290771484375" />
+            <Line endX="27.0" endY="-40.0" layoutX="264.0" layoutY="289.0" startX="-69.29290771484375" startY="13.70709228515625" />
+            <Line endX="-66.29290771484375" endY="53.70709228515625" layoutX="285.0" layoutY="346.0" startX="-90.29290771484375" startY="-43.29290771484375" />
+            <Line endX="23.70709228515625" endY="-38.29290771484375" layoutX="608.0" layoutY="435.0" startX="24.70709228515625" startY="47.29290771484375" />
+            <Line endX="-3.29290771484375" endY="-82.29290771484375" layoutX="553.0" layoutY="409.0" startX="78.29290771484375" startY="73.29290771484375" />
+            <Line endX="116.4141845703125" endY="24.000030517578125" layoutX="367.0" layoutY="399.0" startX="264.29290771484375" startY="83.29290771484375" />
+            <Line endX="69.0" endY="-7.0" layoutX="563.0" layoutY="490.0" startX="-90.0" startY="24.0" />
+            <Line endX="-174.0" endY="-76.0" layoutX="495.0" layoutY="559.0" startX="-188.29290771484375" startY="9.70709228515625" />
+            <Line endX="0.70709228515625" endY="49.29290771484375" layoutX="321.0" layoutY="433.0" startX="-103.0" startY="-34.0" />
+            <Line endX="136.70709228515625" endY="-9.292877197265625" layoutX="346.0" layoutY="433.0" startX="-24.29290771484375" startY="49.29290771484375" />
+            <Line endY="-84.0" layoutX="291.0" layoutY="333.0" startX="-72.29290771484375" startY="66.70709228515625" />
+            <Line endX="39.70709228515625" endY="-48.29290771484375" layoutX="292.0" layoutY="398.0" startX="-72.58578491210938" startY="2.414215087890625" />
+            <Line endX="136.0" endY="18.0" layoutX="346.0" layoutY="405.0" startX="-126.58578491210938" startY="-4.585784912109375" />
+            <Line endX="41.0" endY="44.0" layoutX="590.0" layoutY="352.0" startX="-39.5858154296875" startY="-26.0" />
+            <Line endX="1.4141845703125" endY="-45.292877197265625" layoutX="660.0" layoutY="364.0" startX="-29.0" startY="32.0" />
+            <Line endX="-18.5858154296875" endY="-24.292877197265625" layoutX="680.0" layoutY="343.0" startX="-131.0" startY="-17.0" />
+            <Line endX="32.0" endY="-36.0" layoutX="652.0" layoutY="279.0" startX="8.0" startY="39.0" />
+            <Line endX="69.0" endY="-28.0" layoutX="615.0" layoutY="271.0" startX="-125.5858154296875" startY="-6.585784912109375" />
+            <Line endX="80.0" endY="-44.0" layoutX="604.0" layoutY="287.0" startX="-53.5858154296875" startY="39.0" />
+            <Line endX="36.0" endY="74.0" layoutX="446.0" layoutY="349.0" startX="-115.0" />
+            <Line endX="38.0" endY="82.0" layoutX="444.0" layoutY="341.0" startX="-27.29290771484375" startY="-29.292877197265625" />
+            <Line endX="4.70709228515625" endY="-22.29290771484375" layoutX="545.0" layoutY="349.0" startX="-62.29290771484375" startY="74.70712280273438" />
+            <Line endX="-129.0" endY="77.0" layoutX="460.0" layoutY="272.0" startX="-169.0" startY="-23.0" />
+            <Line endX="21.0" endY="28.0" layoutX="395.0" layoutY="283.0" startX="-103.29290771484375" startY="-33.29290771484375" />
+            <Line endX="128.70709228515625" endY="0.707122802734375" layoutX="360.0" layoutY="263.0" startX="-68.29290771484375" startY="-13.29290771484375" />
+            <Line endX="6.70709228515625" endY="-31.292877197265625" layoutX="482.0" layoutY="295.0" startX="-65.29290771484375" startY="16.707122802734375" />
+            <Line endX="52.0" endY="39.0" layoutX="497.0" layoutY="287.0" startX="-9.0" startY="-24.0" />
+            <Line endX="-2.0" endY="-8.0" layoutX="551.0" layoutY="334.0" startX="-134.29290771484375" startY="-22.292877197265625" />
+            <Line endX="33.4141845703125" endY="-277.0" layoutX="153.0" layoutY="503.0" startX="-45.292877197265625" startY="-109.29290771484375" />
+            <Line endX="73.0" endY="-5.999969482421875" layoutX="343.0" layoutY="317.0" startX="-10.5858154296875" startY="32.0" />
+            <Circle fx:id="akiruno" fill="#00afff" layoutX="88.0" layoutY="253.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="akishima" fill="#00afff" layoutX="194.0" layoutY="302.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="chofu" fill="#00afff" layoutX="632.0" layoutY="483.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="fuchu" fill="#00afff" layoutX="482.0" layoutY="423.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="fussa" fill="#00afff" layoutX="185.0" layoutY="226.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="hachioji" fill="#00afff" layoutX="107.0" layoutY="393.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="hamura" fill="#00afff" layoutX="139.0" layoutY="164.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="higashikurume" fill="#00afff" layoutX="575.0" layoutY="229.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="higashimurayama" fill="#00afff" layoutX="488.0" layoutY="194.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="higashiyamato" fill="#00afff" layoutX="376.0" layoutY="179.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="hino" fill="#00afff" layoutX="218.0" layoutY="399.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="inaji" fill="#00afff" layoutX="473.0" layoutY="514.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="kiyose" fill="#00afff" layoutX="591.0" layoutY="160.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="kodaira" fill="#00afff" layoutX="488.0" layoutY="263.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="konagei" fill="#00afff" layoutX="549.0" layoutY="326.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="kokubunji" fill="#00afff" layoutX="416.0" layoutY="311.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="komae" fill="#00afff" layoutX="690.0" layoutY="534.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="kinitachi" fill="#00afff" layoutX="331.0" layoutY="349.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="machida" fill="#00afff" layoutX="306.0" layoutY="568.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="mitaka" fill="#00afff" layoutX="631.0" layoutY="396.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="musashimurayama" fill="#00afff" layoutX="283.0" layoutY="149.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="musashino" fill="#00afff" layoutX="660.0" layoutY="318.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="nishitokyo" fill="#00afff" layoutX="684.0" layoutY="243.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="ome" fill="#00afff" layoutX="53.0" layoutY="136.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="tachikawa" fill="#00afff" layoutX="291.0" layoutY="249.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="tama" fill="#00afff" layoutX="321.0" layoutY="483.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="akirunoLabel" layoutX="38.0" layoutY="241.0" text="Akiruno" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="akishimaLabel" layoutX="201.0" layoutY="298.0" text="Akishima" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="chofuLabel" layoutX="645.0" layoutY="472.0" text="Chofu" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="fuchuLabel" layoutX="491.0" layoutY="408.0" text="Fuchu" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="fussaLabel" layoutX="145.0" layoutY="212.0" text="Fussa" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="hachiojiLabel" layoutX="47.0" layoutY="381.0" text="Hachioji" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="hamuraLabel" layoutX="141.0" layoutY="140.0" text="Hamura" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="higashikurumaLabel" layoutX="587.0" layoutY="203.0" text="Higashikurume" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="higashimurayamaLabel" layoutX="428.0" layoutY="165.0" text="Higashimurayama" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="higashiyamatoLabel" layoutX="338.0" layoutY="150.0" text="Higashiyamato" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="hinoLabel" layoutX="182.0" layoutY="378.0" text="Hino" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="inagiLabel" layoutX="473.0" layoutY="520.0" text="Inagi" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="kiyoseLabel" layoutX="600.0" layoutY="152.0" text="Kiyose" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="kodairaLabel" layoutX="412.0" layoutY="240.0" text="Kodaira" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="koganeiLabel" layoutX="528.0" layoutY="286.0" text="Koganei" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="kokubunjiLabel" layoutX="383.0" layoutY="280.0" text="Kokubunji" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="komaeLabel" layoutX="696.0" layoutY="517.0" text="Komae" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="kinitachiLabel" layoutX="270.0" layoutY="335.0" text="Kinitachi" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="machidaLabel" layoutX="315.0" layoutY="561.0" text="Machida" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="mitakaLabel" layoutX="644.0" layoutY="393.0" text="Mitaka" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="musashimurayamaLabel" layoutX="241.0" layoutY="122.0" text="Musashimurayama" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="musashinoLabel" layoutX="675.0" layoutY="306.0" text="Musashino" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="nishitokyoLabel" layoutX="696.0" layoutY="240.0" text="Nishitokyo" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="omeLabel" layoutX="52.0" layoutY="114.0" text="Ome" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="tachikawaLabel" layoutX="304.0" layoutY="233.0" text="Tachikawa" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="tamaLabel" layoutX="312.0" layoutY="454.0" text="Tama" textFill="#4a00f0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="peso_23_6" layoutX="87.0" layoutY="131.0" />
+            <Label fx:id="peso_0_23" layoutX="33.0" layoutY="185.0" />
+            <Label fx:id="peso_0_6" layoutX="92.0" layoutY="187.0" />
+            <Label fx:id="peso_0_4" layoutX="113.0" layoutY="251.0" />
+            <Label fx:id="peso_0_5" layoutX="65.0" layoutY="314.0" />
+            <Label fx:id="peso_4_1" layoutX="193.0" layoutY="241.0" />
+            <Label fx:id="peso_4_5" layoutX="119.0" layoutY="288.0" />
+            <Label fx:id="peso_5_10" layoutX="137.0" layoutY="376.0" />
+            <Label fx:id="peso_5_18" layoutX="160.0" layoutY="469.0" />
+            <Label fx:id="peso_18_25" layoutX="320.0" layoutY="520.0" />
+            <Label fx:id="peso_11_25" layoutX="402.0" layoutY="481.0" />
+            <Label fx:id="peso_10_25" layoutX="268.0" layoutY="421.0" />
+            <Label fx:id="peso_5_25" layoutX="203.0" layoutY="416.0" />
+            <Label fx:id="peso_1_10" layoutX="174.0" layoutY="340.0" />
+            <Label fx:id="peso_1_5" layoutX="148.0" layoutY="304.0" />
+            <Label fx:id="peso_10_24" layoutX="262.0" layoutY="306.0" />
+            <Label fx:id="peso_10_17" layoutX="283.0" layoutY="372.0" />
+            <Label fx:id="peso_3_10" layoutX="334.0" layoutY="394.0" />
+            <Label fx:id="peso_1_24" layoutX="224.0" layoutY="257.0" />
+            <Label fx:id="peso_4_6" layoutX="163.0" layoutY="178.0" />
+            <Label fx:id="peso_4_20" layoutX="210.0" layoutY="169.0" />
+            <Label fx:id="peso_4_24" layoutX="227.0" layoutY="215.0" />
+            <Label fx:id="peso_24_20" layoutX="292.0" layoutY="194.0" />
+            <Label fx:id="peso_9_24" layoutX="340.0" layoutY="207.0" />
+            <Label fx:id="peso_13_24" layoutX="368.0" layoutY="233.0" />
+            <Label fx:id="peso_17_24" layoutX="313.0" layoutY="286.0" />
+            <Label fx:id="peso_15_24" layoutX="348.0" layoutY="261.0" />
+            <Label fx:id="peso_15_17" layoutX="348.0" layoutY="314.0" />
+            <Label fx:id="peso_3_17" layoutX="390.0" layoutY="364.0" />
+            <Label fx:id="peso_3_25" layoutX="368.0" layoutY="437.0" />
+            <Label fx:id="peso_3_11" layoutX="480.0" layoutY="472.0" />
+            <Label fx:id="peso_3_2" layoutX="560.0" layoutY="437.0" />
+            <Label fx:id="peso_3_14" layoutX="518.0" layoutY="372.0" />
+            <Label fx:id="peso_3_15" layoutX="453.0" layoutY="347.0" />
+            <Label fx:id="peso_2_16" layoutX="632.0" layoutY="512.0" />
+            <Label fx:id="peso_2_19" layoutX="640.0" layoutY="437.0" />
+            <Label fx:id="peso_2_14" layoutX="560.0" layoutY="403.0" />
+            <Label fx:id="peso_2_11" layoutX="539.0" layoutY="512.0" />
+            <Label fx:id="peso_9_20" layoutX="306.0" layoutY="161.0" />
+            <Label fx:id="peso_19_21" layoutX="651.0" layoutY="349.0" />
+            <Label fx:id="peso_14_21" layoutX="603.0" layoutY="306.0" />
+            <Label fx:id="peso_22_21" layoutX="677.0" layoutY="270.0" />
+            <Label fx:id="peso_14_19" layoutX="594.0" layoutY="344.0" />
+            <Label fx:id="peso_14_15" layoutX="474.0" layoutY="300.0" />
+            <Label fx:id="peso_14_13" layoutX="509.0" layoutY="271.0" />
+            <Label fx:id="peso_14_22" layoutX="594.0" layoutY="267.0" />
+            <Label fx:id="peso_13_15" layoutX="433.0" layoutY="266.0" />
+            <Label fx:id="peso_13_9" layoutX="447.0" layoutY="213.0" />
+            <Label fx:id="peso_13_8" layoutX="494.0" layoutY="210.0" />
+            <Label fx:id="peso_13_7" layoutX="518.0" layoutY="228.0" />
+            <Label fx:id="peso_13_22" layoutX="560.0" layoutY="238.0" />
+            <Label fx:id="peso_7_8" layoutX="525.0" layoutY="194.0" />
+            <Label fx:id="peso_7_12" layoutX="591.0" layoutY="179.0" />
+            <Label fx:id="peso_7_22" layoutX="640.0" layoutY="221.0" />
+            <Label fx:id="peso_8_12" layoutX="525.0" layoutY="146.0" />
+            <Label fx:id="peso_8_9" layoutX="426.0" layoutY="186.0" />
          </children></Pane>
     </children>
 </GridPane>
