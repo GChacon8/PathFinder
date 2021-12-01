@@ -88,8 +88,6 @@ public class MainController extends Controller{
         circlePlaces.put(23, ome);
         circlePlaces.put(24, tachikawa);
         circlePlaces.put(25, tama);
-
-
     }
 
     /**
@@ -117,7 +115,7 @@ public class MainController extends Controller{
             Double time = 0.0;
             String timeString = "";
             Double timeRounded = 0.0;
-            DecimalFormat df = new DecimalFormat("#.00");
+            DecimalFormat dformat = new DecimalFormat("#.000");
             /* Create the nodes */
             for (int k = 0; k <= 25; k++) {
                 graph.addNode(k);
@@ -128,7 +126,7 @@ public class MainController extends Controller{
                 for (int j = 0; j < matrixSize; j++) {
                     time = distances[i][j]; // time in minutes
                     if (i != j) {
-                        timeString = df.format(time);
+                        timeString = dformat.format(time);
 
                         if (timeString.indexOf(",") != -1) {
                             timeString = timeString.replace(',', '.');
@@ -148,63 +146,64 @@ public class MainController extends Controller{
                     + "\n" + "Tiempo total: " + totalTime + " min");
 
             Double delayTime = delaySpinner.getValue();
-            expectedTime.setText(String.valueOf(totalTime + delayTime + " min"));
-            peso_23_6.setText(String.valueOf(((distances[23][6])*60*(200/9))/1000));
-            peso_0_23.setText(String.valueOf(((distances[0][23])*60*(200/9))/1000));
-            peso_0_6.setText(String.valueOf(((distances[0][6])*60*(200/9))/1000));
-            peso_0_4.setText(String.valueOf(((distances[0][4])*60*(200/9))/1000));
-            peso_0_5.setText(String.valueOf(((distances[0][5])*60*(200/9))/1000));
-            peso_4_1.setText(String.valueOf(((distances[1][4])*60*(200/9))/1000));
-            peso_4_5.setText(String.valueOf(((distances[5][4])*60*(200/9))/1000));
-            peso_5_10.setText(String.valueOf(((distances[5][10])*60*(200/9))/1000));
-            peso_5_18.setText(String.valueOf(((distances[5][18])*60*(200/9))/1000));
-            peso_18_25.setText(String.valueOf(((distances[18][25])*60*(200/9))/1000));
-            peso_11_25.setText(String.valueOf(((distances[11][25])*60*(200/9))/1000));
-            peso_10_25.setText(String.valueOf(((distances[10][25])*60*(200/9))/1000));
-            peso_5_25.setText(String.valueOf(((distances[5][25])*60*(200/9))/1000));
-            peso_1_10.setText(String.valueOf(((distances[1][10])*60*(200/9))/1000));
-            peso_1_5.setText(String.valueOf(((distances[1][5])*60*(200/9))/1000));
-            peso_10_24.setText(String.valueOf(((distances[10][24])*60*(200/9))/1000));
-            peso_10_17.setText(String.valueOf(((distances[10][17])*60*(200/9))/1000));
-            peso_3_10.setText(String.valueOf(((distances[10][3])*60*(200/9))/1000));
-            peso_1_24.setText(String.valueOf(((distances[1][24])*60*(200/9))/1000));
-            peso_4_6.setText(String.valueOf(((distances[6][4])*60*(200/9))/1000));
-            peso_4_20.setText(String.valueOf(((distances[20][4])*60*(200/9))/1000));
-            peso_4_24.setText(String.valueOf(((distances[24][4])*60*(200/9))/1000));
-            peso_24_20.setText(String.valueOf(((distances[20][24])*60*(200/9))/1000));
-            peso_9_24.setText(String.valueOf(((distances[9][24])*60*(200/9))/1000));
-            peso_13_24.setText(String.valueOf(((distances[13][24])*60*(200/9))/1000));
-            peso_17_24.setText(String.valueOf(((distances[17][24])*60*(200/9))/1000));
-            peso_15_24.setText(String.valueOf(((distances[15][24])*60*(200/9))/1000));
-            peso_15_17.setText(String.valueOf(((distances[15][17])*60*(200/9))/1000));
-            peso_3_17.setText(String.valueOf(((distances[3][17])*60*(200/9))/1000));
-            peso_3_25.setText(String.valueOf(((distances[3][25])*60*(200/9))/1000));
-            peso_3_11.setText(String.valueOf(((distances[3][11])*60*(200/9))/1000));
-            peso_3_2.setText(String.valueOf(((distances[3][2])*60*(200/9))/1000));
-            peso_3_14.setText(String.valueOf(((distances[3][14])*60*(200/9))/1000));
-            peso_3_15.setText(String.valueOf(((distances[3][15])*60*(200/9))/1000));
-            peso_2_16.setText(String.valueOf(((distances[2][16])*60*(200/9))/1000));
-            peso_2_14.setText(String.valueOf(((distances[2][14])*60*(200/9))/1000));
-            peso_2_19.setText(String.valueOf(((distances[2][19])*60*(200/9))/1000));
-            peso_2_11.setText(String.valueOf(((distances[2][11])*60*(200/9))/1000));
-            peso_9_20.setText(String.valueOf(((distances[20][9])*60*(200/9))/1000));
-            peso_19_21.setText(String.valueOf(((distances[19][21])*60*(200/9))/1000));
-            peso_14_21.setText(String.valueOf(((distances[14][21])*60*(200/9))/1000));
-            peso_22_21.setText(String.valueOf(((distances[22][21])*60*(200/9))/1000));
-            peso_14_19.setText(String.valueOf(((distances[14][19])*60*(200/9))/1000));
-            peso_14_15.setText(String.valueOf(((distances[14][15])*60*(200/9))/1000));
-            peso_14_13.setText(String.valueOf(((distances[14][13])*60*(200/9))/1000));
-            peso_14_22.setText(String.valueOf(((distances[14][22])*60*(200/9))/1000));
-            peso_13_15.setText(String.valueOf(((distances[13][15])*60*(200/9))/1000));
-            peso_13_7.setText(String.valueOf(((distances[13][7])*60*(200/9))/1000));
-            peso_13_8.setText(String.valueOf(((distances[13][8])*60*(200/9))/1000));
-            peso_13_9.setText(String.valueOf(((distances[13][9])*60*(200/9))/1000));
-            peso_13_22.setText(String.valueOf(((distances[13][22])*60*(200/9))/1000));
-            peso_7_8.setText(String.valueOf(((distances[8][7])*60*(200/9))/1000));
-            peso_7_12.setText(String.valueOf(((distances[7][12])*60*(200/9))/1000));
-            peso_7_22.setText(String.valueOf(((distances[7][22])*60*(200/9))/1000));
-            peso_8_12.setText(String.valueOf(((distances[8][12])*60*(200/9))/1000));
-            peso_8_9.setText(String.valueOf(((distances[8][9])*60*(200/9))/1000));
+            expectedTime.setText(String.valueOf(dformat.format(totalTime + delayTime) + " min"));
+
+            peso_23_6.setText(String.valueOf(dformat.format(((distances[23][6])*60*((float)200/(float)9))/1000)));
+            peso_0_23.setText(String.valueOf(dformat.format(((distances[0][23])*60*((float)200/(float)9))/1000)));
+            peso_0_6.setText(String.valueOf(dformat.format(((distances[0][6])*60*((float)200/(float)9))/1000)));
+            peso_0_4.setText(String.valueOf(dformat.format(((distances[0][4])*60*((float)200/(float)9))/1000)));
+            peso_0_5.setText(String.valueOf(dformat.format(((distances[0][5])*60*((float)200/(float)9))/1000)));
+            peso_4_1.setText(String.valueOf(dformat.format(((distances[1][4])*60*((float)200/(float)9))/1000)));
+            peso_4_5.setText(String.valueOf(dformat.format(((distances[5][4])*60*((float)200/(float)9))/1000)));
+            peso_5_10.setText(String.valueOf(dformat.format(((distances[5][10])*60*((float)200/(float)9))/1000)));
+            peso_5_18.setText(String.valueOf(dformat.format(((distances[5][18])*60*((float)200/(float)9))/1000)));
+            peso_18_25.setText(String.valueOf(dformat.format(((distances[18][25])*60*((float)200/(float)9))/1000)));
+            peso_11_25.setText(String.valueOf(dformat.format(((distances[11][25])*60*((float)200/(float)9))/1000)));
+            peso_10_25.setText(String.valueOf(dformat.format(((distances[10][25])*60*((float)200/(float)9))/1000)));
+            peso_5_25.setText(String.valueOf(dformat.format(((distances[5][25])*60*((float)200/(float)9))/1000)));
+            peso_1_10.setText(String.valueOf(dformat.format(((distances[1][10])*60*((float)200/(float)9))/1000)));
+            peso_1_5.setText(String.valueOf(dformat.format(((distances[1][5])*60*((float)200/(float)9))/1000)));
+            peso_10_24.setText(String.valueOf(dformat.format(((distances[10][24])*60*((float)200/(float)9))/1000)));
+            peso_10_17.setText(String.valueOf(dformat.format(((distances[10][17])*60*((float)200/(float)9))/1000)));
+            peso_3_10.setText(String.valueOf(dformat.format(((distances[10][3])*60*((float)200/(float)9))/1000)));
+            peso_1_24.setText(String.valueOf(dformat.format(((distances[1][24])*60*((float)200/(float)9))/1000)));
+            peso_4_6.setText(String.valueOf(dformat.format(((distances[6][4])*60*((float)200/(float)9))/1000)));
+            peso_4_20.setText(String.valueOf(dformat.format(((distances[20][4])*60*((float)200/(float)9))/1000)));
+            peso_4_24.setText(String.valueOf(dformat.format(((distances[24][4])*60*((float)200/(float)9))/1000)));
+            peso_24_20.setText(String.valueOf(dformat.format(((distances[20][24])*60*((float)200/(float)9))/1000)));
+            peso_9_24.setText(String.valueOf(dformat.format(((distances[9][24])*60*((float)200/(float)9))/1000)));
+            peso_13_24.setText(String.valueOf(dformat.format(((distances[13][24])*60*((float)200/(float)9))/1000)));
+            peso_17_24.setText(String.valueOf(dformat.format(((distances[17][24])*60*((float)200/(float)9))/1000)));
+            peso_15_24.setText(String.valueOf(dformat.format(((distances[15][24])*60*((float)200/(float)9))/1000)));
+            peso_15_17.setText(String.valueOf(dformat.format(((distances[15][17])*60*((float)200/(float)9))/1000)));
+            peso_3_17.setText(String.valueOf(dformat.format(((distances[3][17])*60*((float)200/(float)9))/1000)));
+            peso_3_25.setText(String.valueOf(dformat.format(((distances[3][25])*60*((float)200/(float)9))/1000)));
+            peso_3_11.setText(String.valueOf(dformat.format(((distances[3][11])*60*((float)200/(float)9))/1000)));
+            peso_3_2.setText(String.valueOf(dformat.format(((distances[3][2])*60*((float)200/(float)9))/1000)));
+            peso_3_14.setText(String.valueOf(dformat.format(((distances[3][14])*60*((float)200/(float)9))/1000)));
+            peso_3_15.setText(String.valueOf(dformat.format(((distances[3][15])*60*((float)200/(float)9))/1000)));
+            peso_2_16.setText(String.valueOf(dformat.format(((distances[2][16])*60*((float)200/(float)9))/1000)));
+            peso_2_14.setText(String.valueOf(dformat.format(((distances[2][14])*60*((float)200/(float)9))/1000)));
+            peso_2_19.setText(String.valueOf(dformat.format(((distances[2][19])*60*((float)200/(float)9))/1000)));
+            peso_2_11.setText(String.valueOf(dformat.format(((distances[2][11])*60*((float)200/(float)9))/1000)));
+            peso_9_20.setText(String.valueOf(dformat.format(((distances[20][9])*60*((float)200/(float)9))/1000)));
+            peso_19_21.setText(String.valueOf(dformat.format(((distances[19][21])*60*((float)200/(float)9))/1000)));
+            peso_14_21.setText(String.valueOf(dformat.format(((distances[14][21])*60*((float)200/(float)9))/1000)));
+            peso_22_21.setText(String.valueOf(dformat.format(((distances[22][21])*60*((float)200/(float)9))/1000)));
+            peso_14_19.setText(String.valueOf(dformat.format(((distances[14][19])*60*((float)200/(float)9))/1000)));
+            peso_14_15.setText(String.valueOf(dformat.format(((distances[14][15])*60*((float)200/(float)9))/1000)));
+            peso_14_13.setText(String.valueOf(dformat.format(((distances[14][13])*60*((float)200/(float)9))/1000)));
+            peso_14_22.setText(String.valueOf(dformat.format(((distances[14][22])*60*((float)200/(float)9))/1000)));
+            peso_13_15.setText(String.valueOf(dformat.format(((distances[13][15])*60*((float)200/(float)9))/1000)));
+            peso_13_7.setText(String.valueOf(dformat.format(((distances[13][7])*60*((float)200/(float)9))/1000)));
+            peso_13_8.setText(String.valueOf(dformat.format(((distances[13][8])*60*((float)200/(float)9))/1000)));
+            peso_13_9.setText(String.valueOf(dformat.format(((distances[13][9])*60*((float)200/(float)9))/1000)));
+            peso_13_22.setText(String.valueOf(dformat.format(((distances[13][22])*60*((float)200/(float)9))/1000)));
+            peso_7_8.setText(String.valueOf(dformat.format(((distances[8][7])*60*((float)200/(float)9))/1000)));
+            peso_7_12.setText(String.valueOf(dformat.format(((distances[7][12])*60*((float)200/(float)9))/1000)));
+            peso_7_22.setText(String.valueOf(dformat.format(((distances[7][22])*60*((float)200/(float)9))/1000)));
+            peso_8_12.setText(String.valueOf(dformat.format(((distances[8][12])*60*((float)200/(float)9))/1000)));
+            peso_8_9.setText(String.valueOf(dformat.format(((distances[8][9])*60*((float)200/(float)9))/1000)));
 
             for(K place: route.keySet()){
                 Circle CirclestoPaint = circlePlaces.get(place);

@@ -8,7 +8,12 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.DecimalFormat;
 
+/**
+ * This class requests the different distance values for each pair of cities, making a time matrix with a specified velocity.
+ * @author Gabriel Chacon, Jimena Leon, Justin Fernandez and Abraham Venegas
+ */
 public class API {
     private final String API_KEY = "AIzaSyB0IG79cXoG_hZoGtrH3oOfLyyHFJhMWfE";
     private Double[][] distances;
@@ -19,7 +24,14 @@ public class API {
             "Musashino+City,+Tokyo","Nishitokyo+City,+Tokyo","Ome+City,+Tokyo","Tachikawa+City,+Tokyo","Tama+City,+Tokyo"};
     private final int n = cities.length;
 
-    //downloading the data
+    /**
+     * This method requests the distance between two cities using the google maps API key.
+     *
+     * @param source The source city of the request
+     * @param destination The destination city of the request
+     * @return the different distances of the cities requested
+     * @throws Exception In case the request failed
+     */
     public String getData(String source, String destination) throws Exception {
         var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + source + "&destinations=" + destination + "&key=" + API_KEY;
         var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
@@ -29,6 +41,13 @@ public class API {
         return response;
     }
 
+    /**
+     * A method to customize the JSON format to extract the distance value from the whole request
+     * Also divides the distance by a constant velocity, giving us a specific time as a result
+     * @param response The formatted distance value
+     * @param i Iterator
+     * @param j Iterator
+     */
     public void parse(String response,int i,int j){
         long distance = -1L;
         //parsing json data and updating data
@@ -43,7 +62,8 @@ public class API {
                 JSONObject je = (JSONObject) jo.get("distance");
                 distance = (long) je.get("value");
 
-                distances[i][j] = Double.valueOf((distance / (200/9))/60);
+                DecimalFormat df = new DecimalFormat("#.000");
+                distances[i][j]  = Double.valueOf(df.format(Double.valueOf((distance / ((float)200/(float)9))/(60))));
 
             } catch (Exception e) {
                 System.out.println(e + " for " + cities[j]);
@@ -51,6 +71,10 @@ public class API {
         }
     }
 
+    /**
+     * Makes a .txt file with the different time values calculated in the parsing method for the whole matrix
+     * @throws FileNotFoundException In case the file couldn't be made
+     */
     public void make_text_file() throws FileNotFoundException {
         PrintWriter out =new PrintWriter("TimeMatrix.txt");
         for (int i = 0 ; i < n ; i++) {
@@ -62,6 +86,11 @@ public class API {
         out.close();
     }
 
+    /**
+     * This method makes the different request for every specified pair of cities and calls the parsing method, making the time matrix
+     * @return The time matrix
+     * @throws Exception In case the different calls to other methods fail
+     */
     public Double[][] callApi() throws Exception{
         distances = new Double[n][n];
         int count=0;
