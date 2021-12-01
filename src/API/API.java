@@ -64,7 +64,7 @@ public class API {
                 JSONObject je = (JSONObject) jo.get("distance");
                 distance = (long) je.get("value");
 
-                DecimalFormat df = new DecimalFormat("#,000");
+                DecimalFormat df = new DecimalFormat("#.000");
                 distances[i][j]  = Double.valueOf(df.format(Double.valueOf((distance / ((float)200/(float)9))/(60))));
 
             } catch (Exception e) {
