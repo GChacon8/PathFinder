@@ -96,7 +96,7 @@ public class API {
         int count=0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++) {
-//                System.out.print(++count+"/100 ");
+                
                 if (i == 0 && (j==23 || j == 6 || j==4 || j ==5)) {
                     String response = getData(cities[i], cities[j]);
                     parse(response, i, j);
