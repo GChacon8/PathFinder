@@ -2,11 +2,22 @@ package GraphAndDijkstra;
 
 import java.util.*;
 
+/**
+ * A directed graph represented with dictionaries
+ *
+ * @param <T> Generic type of Java
+ * @author Jimena Leon, Justin Fernandez, Gabriel Chacon and Abraham Venegas
+ */
 public final class Graph<T> implements Iterable<T> {
 
     /* The graph is a dictionary */
     private final Map<T, Map<T, Double>> graph = new HashMap<T, Map<T, Double>>();
 
+    /**
+     * Inserts a node in the graph
+     * @param node the node we will add on the graph
+     * @return returns a boolean indicating if the node wasn´t there before
+     */
     public boolean addNode(T node) {
         /* If the node already exists, don't do anything */
         if (graph.containsKey(node)) {
@@ -18,6 +29,12 @@ public final class Graph<T> implements Iterable<T> {
         }
     }
 
+    /**
+     * Insert an edge on the graph from city start to city dest with a time
+     * @param start
+     * @param dest
+     * @param length
+     */
     public void addEdge(T start, T dest, double length) {
         /* Confirm both endpoints exist */
         if (!graph.containsKey(start) || !graph.containsKey(dest)){
@@ -30,6 +47,11 @@ public final class Graph<T> implements Iterable<T> {
 
     }
 
+    /**
+     * Returns the edges from a particular node
+     * @param node the node we want the edges from
+     * @return the edges from the given node
+     */
     public Map<T, Double> edgesFrom(T node) {
         /* Check that the node exists. */
         Map<T, Double> edges = graph.get(node);

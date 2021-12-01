@@ -2,8 +2,22 @@ package GraphAndDijkstra;
 
 import java.util.*;
 
+/**
+ * This class represents the Dijkstra´s algorithm to find the shortest route between two given cities.
+ *
+ * @author Jimena Leon, Justin Fernandez, Gabriel Chacon and Abraham Venegas
+ */
 public final class Dijkstra {
 
+    /**
+     * Calculate the shortest path between tho given cities
+     *
+     * @param graph A directed graph
+     * @param source Departure city
+     * @param destine Arrival city
+     * @param <T> Generic types allowed in Java
+     * @return a dictionary containing the cities involved in the best route found and its corresponding times
+     */
     public <T> Map<T, Double> calcShortestPath(Graph<T> graph, T source, T destine) {
         /* Create a Fibonacci heap storing the distances of unvisited nodes
          * from the source node.

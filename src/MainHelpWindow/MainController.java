@@ -6,15 +6,15 @@ import GraphAndDijkstra.Graph;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
+
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Control the functions and the interactivity between the user and the app.
@@ -120,7 +120,7 @@ public class MainController extends Controller{
             Double time = 0.0;
             String timeString = "";
             Double timeRounded = 0.0;
-            DecimalFormat dformat = new DecimalFormat("#.000");
+            DecimalFormat dformat = new DecimalFormat("#.0");
             /* Create the nodes */
             for (int k = 0; k <= 25; k++) {
                 graph.addNode(k);

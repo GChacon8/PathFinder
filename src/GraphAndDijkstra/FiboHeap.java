@@ -2,9 +2,20 @@ package GraphAndDijkstra;
 
 import java.util.*;
 
+/**
+ * A Fibonacci Heap to help the Dijkstra algorithm to find the minimum time required from city A to city B
+ *
+ * @param <T>
+ * @author Jimena Leon, Justin Fernandez, Gabriel Chacon and Abraham Venegas
+ */
 public final class FiboHeap<T> {
 
-    public final class Node<T> {
+    /**
+     * Entry or particular element of a Fibonacci Heap
+     *
+     * @param <T> Generic types of Java
+     */
+    class Node<T> {
         private Node<T> next;
         private Node<T> prev;
         private Node<T> parent;
@@ -33,6 +44,13 @@ public final class FiboHeap<T> {
     private Node<T> minimum = null;
     private int sizeFibo = 0;
 
+    /**
+     * Inserts an element (node) in the Fibonacci Heap
+     *
+     * @param value the name of the city
+     * @param time the total time spent to go to that city
+     * @return The inserted node
+     */
     public Node<T> enqueue(T value, double time) {
         verifyPriority(time);
 
@@ -49,6 +67,11 @@ public final class FiboHeap<T> {
         return result;
     }
 
+    /**
+     * Loses a particular node from the Fibonacci Heap
+     *
+     * @param node the node we want to lose/erase/delete (the garbage collector does that for us)
+     */
     private void deleteNode(Node<T> node) {
         /* We begin by clearing the node's mark, because we just cut it */
         node.isMarked = false;
@@ -97,6 +120,11 @@ public final class FiboHeap<T> {
         node.parent = null;
     }
 
+    /**
+     * Finds the minimum element and then deletes it from the Fibonacci Heap
+     *
+     * @return The minimum element
+     */
     public Node<T> dequeueMinimum() {
         /* Check for whether we're empty */
         if (isEmpty())
@@ -224,6 +252,12 @@ public final class FiboHeap<T> {
         return minElem;
     }
 
+    /**
+     * Updates the total time spent from city A to city B
+     *
+     * @param node the node whose time we want to decrease
+     * @param newTime the new value of time we will give to the node
+     */
     public void decreaseTimeOfNode(Node<T> node, double newTime) {
 
         verifyPriority(newTime);
@@ -245,6 +279,14 @@ public final class FiboHeap<T> {
             minimum = node;
     }
 
+    /**
+     * Unifies two roots on the FIobnacci Heap. In case they are trees, it deals with all the pointers involved.
+     *
+     * @param listOne first list
+     * @param listTwo second list
+     * @param <T> Generic type of Java
+     * @return smallest list between those two
+     */
     private <T> Node<T> uniteLists(Node<T> listOne, Node<T> listTwo) {
         /* Four cases depending if the lists are null or not */
         if (listOne == null && listTwo == null) { // Both null, resulting list is null
@@ -274,12 +316,22 @@ public final class FiboHeap<T> {
         }
     }
 
+    /**
+     * Verifies if the priority (time) is a number or not
+     *
+     * @param priority
+     */
     private void verifyPriority(double priority) {
         if (Double.isNaN(priority)){
             throw new IllegalArgumentException(priority + " is invalid :(");
         }
     }
 
+    /**
+     *  Evaluates if the Fibonacci Heap is empty or not
+     *
+     * @return whether the Fibonacci Heap is empty or not
+     */
     public boolean isEmpty() {
         return minimum == null;
     }
